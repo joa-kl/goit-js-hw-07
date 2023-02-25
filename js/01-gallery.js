@@ -32,7 +32,7 @@ function openModal(event) {
     }
     const instance = basicLightbox.create(
         `<img src="${event.target.dataset.source}">`,
-    
+        
         {
           onShow: instance => {
             window.addEventListener('keydown', closeModal);
