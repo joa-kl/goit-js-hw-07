@@ -31,8 +31,23 @@ function openModal(event) {
         return;
     }
     const instance = basicLightbox.create(
-        `<img src="${image.original}" alt="${image.description}">`
-    )
+        `<img src="${event.target.dataset.source}">`,
+    
+        {
+          onShow: instance => {
+            window.addEventListener('keydown', closeModal);
+          }
+        }
+    );
+      function closeModal(event) {
+        if (event.code === 'Escape') {
+          instance.close();
+        }
+      }
+      
+        instance.show();     
 }
+   
 
-instance.show();
+
+
